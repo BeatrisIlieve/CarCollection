@@ -13,7 +13,7 @@
 #car-details>h1 {
     letter-spacing: 10px;
     font-family: 'Cinzel', serif;
-    color: #E2E8EA;
+    color: #B8860B;
     font-size: 55px;
     font-weight: 600;
     margin-bottom: 40px;
@@ -31,7 +31,7 @@
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     border-radius: 20px;
-    border: 1px solid rgba(255, 255, 255, 0.18);
+    border: 1px solid #C0C0C0;
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.37);
 }
 
@@ -42,7 +42,7 @@
 }
 
 .car-header>h1 {
-    color: #E2E8EA;
+    color: #C0C0C0;
     margin-top: 5px;
     font-size: 36px;
     font-weight: 400;
@@ -50,7 +50,7 @@
 }
 
 .car-header>h4 {
-    color: #E2E8EA;
+    color: #C0C0C0;
     font-size: 23px;
     font-weight: 400;
 }
@@ -102,7 +102,7 @@
     padding: 14px;
     margin-top: auto;
     font-size: 21px;
-    color: rgb(255, 255, 255);
+    color: #C0C0C0;
     box-shadow: 0 0 25px white;
     border-radius: 20px;
 }
