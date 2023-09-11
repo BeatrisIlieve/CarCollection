@@ -60,9 +60,13 @@ WSGI_APPLICATION = 'car_collection.wsgi.application'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+    "default": {
+        "ENGINE": "django.db.backends.postgresql",
+        "NAME": "car_collection_db",
+        "USER": "postgres-user",
+        "PASSWORD": "S@3ana3a",
+        "HOST": "127.0.0.1",
+        "PORT": "5432",
     }
 }
 
@@ -90,6 +94,7 @@ USE_I18N = True
 USE_TZ = True
 
 STATIC_URL = 'static/'
+
 
 STATICFILES_DIRS = (
     BASE_DIR / 'staticfiles',

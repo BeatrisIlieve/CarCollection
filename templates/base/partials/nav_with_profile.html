@@ -1,0 +1,13 @@
+    <header>
+
+        <!-- Navigation Bar -->
+        <h1><a class="index-navigation" href="{% url 'home page' %}"><span>C</span>ARS <span>C</span>OLLECTION</a></h1>
+        <nav>
+
+                <!-- if the user has created a profile -->
+                <a href="{% url 'catalogue' %}">Catalogue</a>
+                <a href="{% url 'create car' %}">Create Car</a>
+                <a href="{% url 'details profile' pk=1 %}">Profile</a>
+
+        </nav>
+    </header>

@@ -1,7 +1,7 @@
 {% extends 'base/base.html' %}
 {% load static %}
 {% block page_content %}
-{% include 'base/partials/nav.html' %}
+{% include 'base/partials/nav_with_profile.html' %}
     <!-- profile details section -->
     <section id="car-details">
         <h1>Profile Details</h1>
@@ -23,8 +23,8 @@
                 <p class="description">Total price: 276.000</p>
                 <!-- Edit/Delete buttons -->
                 <div class="buttons">
-                    <a href="{% url 'edit profile' %}" class="edit-button">Edit</a>
-                    <a href="{% url 'delete profile' %}" class="delete-button">Delete</a>
+                    <a href="{% url 'edit profile' pk=1 %}" class="edit-button">Edit</a>
+                    <a href="{% url 'delete profile' pk=1 %}" class="delete-button">Delete</a>
                 </div>
             </div>
         </div>
