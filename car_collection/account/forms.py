@@ -15,12 +15,6 @@ class EditProfileForm(forms.ModelForm):
         fields = '__all__'
 
 
-class DetailsProfileForm(forms.ModelForm):
-    class Meta:
-        model = Profile
-        fields = '__all__'
-
-
 class DeleteProfileForm(forms.ModelForm):
     class Meta:
         model = Profile
