@@ -11,4 +11,4 @@ class CreateCarForm(forms.ModelForm):
 class ShowCarCatalogue(forms.ModelForm):
     class Meta:
         model = Car
-        fields = ('type', 'model', 'car_image',)
+        fields = ('brand', 'model', 'car_image',)

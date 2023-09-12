@@ -26,7 +26,7 @@ class Car(models.Model):
         (OTHER, OTHER),
     )
 
-    type = models.CharField(
+    brand = models.CharField(
         null=False,
         blank=False,
     )
