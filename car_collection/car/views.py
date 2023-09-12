@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 
 from car_collection.car.forms import CreateCarForm
+from car_collection.car.models import Car
 
 
 def create_car(request):
@@ -35,4 +36,8 @@ def edit_car(request, pk):
 
 
 def show_catalogue(request):
-    return render(request, 'car/catalogue.html')
+    context = {
+        'cars': Car.objects.all()
+    }
+
+    return render(request, 'car/catalogue.html', context)

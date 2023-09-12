@@ -4,9 +4,7 @@
     <div id="box">
         {% include 'base/partials/nav_with_profile.html' %}
         <!-- Display paragraph: If there are no cars yet-->
-        <p class="no-articles">No cars yet</p>
-
-        <!-- Display div "car" with information about every car (if any)-->
+        {% if cars %}
 
         <section id="catalogue">
             <h1>Total cars: 3</h1>
@@ -27,6 +25,9 @@
                     <a href="{% url 'details car' pk=1 %}" class="details-btn">Details</a>
                 </div>
             </div>
+            {% else %}
+            <p class="no-articles">No cars yet</p>
+            {% endif %}
         </section>
     </div>
 {% endblock %}

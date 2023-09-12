@@ -7,3 +7,8 @@ class CreateCarForm(forms.ModelForm):
     class Meta:
         model = Car
         fields = '__all__'
+
+class ShowCarCatalogue(forms.ModelForm):
+    class Meta:
+        model = Car
+        fields = ('type', 'model', 'car_image',)
