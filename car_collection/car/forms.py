@@ -26,3 +26,9 @@ class DeleteCarForm(forms.ModelForm):
         else:
             pass
         return self.instance
+
+
+class EditCarForm(forms.ModelForm):
+    class Meta:
+        model = Car
+        fields = '__all__'

@@ -1,11 +1,10 @@
 from django.shortcuts import render, redirect
 
-from car_collection.car.forms import CreateCarForm, DeleteCarForm
+from car_collection.car.forms import CreateCarForm, DeleteCarForm, EditCarForm
 from car_collection.car.models import Car
 
 
 def create_car(request):
-
     if request.method == 'GET':
         form = CreateCarForm()
 
@@ -24,7 +23,6 @@ def create_car(request):
 
 
 def delete_car(request, pk):
-
     car = Car.objects.all().filter(pk=pk).get()
 
     if request.method == 'GET':
@@ -47,7 +45,6 @@ def delete_car(request, pk):
 
 
 def details_car(request, pk):
-
     car = Car.objects.all().filter(pk=pk).get()
 
     context = {
@@ -59,7 +56,25 @@ def details_car(request, pk):
 
 
 def edit_car(request, pk):
-    return render(request, 'car/car-edit.html')
+    car = Car.objects.all().filter(pk=pk).get()
+
+    if request.method == 'GET':
+        form = EditCarForm(instance=car)
+
+    else:
+        form = EditCarForm(request.POST, request.FILES, instance=car)
+
+        if form.is_valid():
+            form.save()
+            return redirect('details car', pk=car.pk)
+
+    context = {
+        'form': form,
+        'car': car,
+        'pk': pk,
+    }
+
+    return render(request, 'car/car-edit.html', context)
 
 
 def show_catalogue(request):
