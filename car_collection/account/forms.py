@@ -8,7 +8,27 @@ class CreateProfileForm(forms.ModelForm):
         model = Profile
         fields = '__all__'
 
+
 class EditProfileForm(forms.ModelForm):
     class Meta:
         model = Profile
         fields = '__all__'
+
+
+class DetailsProfileForm(forms.ModelForm):
+    class Meta:
+        model = Profile
+        fields = '__all__'
+
+
+class DeleteProfileForm(forms.ModelForm):
+    class Meta:
+        model = Profile
+        exclude = '__all__'
+
+    def save(self, commit=True):
+        if commit:
+            self.instance.delete()
+        else:
+            pass
+        return self.instance

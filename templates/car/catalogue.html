@@ -3,31 +3,25 @@
     <body>
     <div id="box">
         {% include 'base/partials/nav_with_profile.html' %}
-        <!-- Display paragraph: If there are no cars yet-->
         {% if cars %}
-
-        <section id="catalogue">
+            <section id="catalogue">
             <h1>Total cars: 3</h1>
-
-            <!-- first car-->
-            <div class="car-card">
-                <div class="image-wrap">
-                    <!-- car image -->
-                    <img src="https://www.complete-leasing.co.uk/img/gallery/porsche-718-cayman-in-black.jpg"
-                         alt="Sport Car">
+            {% for car in cars %}
+                <div class="car-card">
+                    <div class="image-wrap">
+                        <img src="/media/{{ car.car_image }}"
+                             alt="{{ car.type }}">
+                    </div>
+                    <h3>{{ car.type }}</h3>
+                    <h1>{{ car.model }}</h1>
+                    <div class="details-buttons">
+                        <a href="{% url 'details car' pk=car.pk %}" class="details-btn">Details</a>
+                    </div>
                 </div>
-                <!-- car type -->
-                <h3>Sport Car</h3>
-                <!-- car model -->
-                <h1>Ferrari 488 GTB</h1>
-                <div class="details-buttons">
-                    <!-- car details button -->
-                    <a href="{% url 'details car' pk=1 %}" class="details-btn">Details</a>
-                </div>
-            </div>
-            {% else %}
+            {% endfor %}
+        {% else %}
             <p class="no-articles">No cars yet</p>
-            {% endif %}
+        {% endif %}
         </section>
     </div>
 {% endblock %}
