@@ -20,7 +20,7 @@ class MaxFileSizeInMbValidator:
             raise ValidationError(self.__get_exception_message())
 
     @staticmethod
-    def __megabytes_to_bytes(self, value):
+    def __megabytes_to_bytes(value):
         return value * 1024 * 1024
 
     def __get_exception_message(self):
