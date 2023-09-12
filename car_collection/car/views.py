@@ -47,6 +47,7 @@ def delete_car(request, pk):
 def details_car(request, pk):
     car = Car.objects.all().filter(pk=pk).get()
 
+
     context = {
         'car': car,
         'pk': pk,
@@ -78,8 +79,11 @@ def edit_car(request, pk):
 
 
 def show_catalogue(request):
+    total_cars = Car.objects.all().count()
+
     context = {
-        'cars': Car.objects.all()
+        'cars': Car.objects.all(),
+        'total_cars': total_cars,
     }
 
     return render(request, 'car/catalogue.html', context)

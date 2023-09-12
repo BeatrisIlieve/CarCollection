@@ -5,7 +5,7 @@
         {% include 'base/partials/nav_with_profile.html' %}
         {% if cars %}
             <section id="catalogue">
-            <h1>Total cars: 3</h1>
+            <h1>Total cars: {{ total_cars }}</h1>
             {% for car in cars %}
                 <div class="car-card">
                     <div class="image-wrap">
