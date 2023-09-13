@@ -1,3 +1,5 @@
+import os
+
 from django import forms
 
 from car_collection.account.models import Profile
@@ -21,8 +23,10 @@ class DeleteProfileForm(forms.ModelForm):
         fields = ()
 
     def save(self, commit=True):
+        profile_image_path = self.instance.profile_image.path
+
         if commit:
             self.instance.delete()
-        else:
-            pass
+            os.remove(profile_image_path)
+
         return self.instance

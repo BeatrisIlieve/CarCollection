@@ -1,3 +1,5 @@
+import os
+
 from django import forms
 
 from car_collection.car.models import Car
@@ -18,13 +20,15 @@ class ShowCarCatalogue(forms.ModelForm):
 class DeleteCarForm(forms.ModelForm):
     class Meta:
         model = Car
-        fields = '__all__'
+        fields = ()
 
     def save(self, commit=True):
+        car_image_path = self.instance.car_image.path
+
         if commit:
             self.instance.delete()
-        else:
-            pass
+            os.remove(car_image_path)
+
         return self.instance
 
 
