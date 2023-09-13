@@ -50,7 +50,4 @@ class Profile(models.Model):
     def full_name(self):
         return f'{self.first_name} {self.last_name}'
 
-    @property
-    def total_cars_price(self):
-        total_sum = sum([c.price for c in Car.objects.all()])
-        return f'{total_sum:.2f}'
+

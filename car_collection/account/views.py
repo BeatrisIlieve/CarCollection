@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 
 from car_collection.account.forms import CreateProfileForm, EditProfileForm, DeleteProfileForm
+from car_collection.car.models import Car
 from car_collection.common.views import get_profile
 
 
@@ -47,9 +48,12 @@ def delete_profile(request, pk):
 def details_profile(request, pk):
     profile = get_profile()
 
+    total_sum = sum(c.price for c in Car.objects.all())
+
     context = {
         'profile': profile,
         'pk': pk,
+        'total_sum': f'{total_sum:.2f}',
     }
 
     return render(request, 'account/profile-details.html', context)
