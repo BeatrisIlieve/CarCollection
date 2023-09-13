@@ -50,8 +50,8 @@ class Car(models.Model):
 
     car_image = models.ImageField(
         upload_to=IMAGE_UPLOAD_TO_DIR,
-        null=True,
-        blank=True,
+        null=False,
+        blank=False,
         validators=(
             MaxFileSizeInMbValidator(IMAGE_MAX_SIZE_IN_MB),
         )
