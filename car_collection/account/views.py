@@ -53,7 +53,7 @@ def details_profile(request, pk):
     context = {
         'profile': profile,
         'pk': pk,
-        'total_sum': f'{total_sum:.2f}',
+        'total_sum': total_sum,
     }
 
     return render(request, 'account/profile-details.html', context)

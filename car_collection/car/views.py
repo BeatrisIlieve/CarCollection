@@ -52,7 +52,7 @@ def details_car(request, pk):
     context = {
         'car': car,
         'pk': pk,
-        'car_price': f'{car_price:.2f}',
+        'car_price': car_price,
     }
 
     return render(request, 'car/car-details.html', context)
