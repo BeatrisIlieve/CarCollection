@@ -1,3 +1,4 @@
+# car/models.py
 from django.db import models
 
 from car_collection.core.validators import MaxFileSizeInMbValidator, validate_car_manufacturing_year, validate_car_price
@@ -40,11 +41,11 @@ class Car(models.Model):
 
     year = models.IntegerField(
         default=DEFAULT_MANUFACTURING_YEAR,
+        null=False,
+        blank=False,
         validators=(
             validate_car_manufacturing_year,
         ),
-        null=False,
-        blank=False,
     )
 
     car_image = models.ImageField(
@@ -58,9 +59,9 @@ class Car(models.Model):
 
     price = models.FloatField(
         default=CAR_PRICE_DEFAULT_VALUE,
+        null=False,
+        blank=False,
         validators=(
             validate_car_price,
         ),
-        null=False,
-        blank=False,
     )

@@ -37,11 +37,11 @@ class Profile(models.Model):
 
     username = models.CharField(
         max_length=USERNAME_MAX_LENGTH,
+        null=False,
+        blank=False,
         validators=(
             MinLengthValidator(USERNAME_MIN_LENGTH),
         ),
-        null=False,
-        blank=False
     )
 
     email = models.EmailField()
