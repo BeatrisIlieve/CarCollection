@@ -47,10 +47,12 @@ def delete_car(request, pk):
 def details_car(request, pk):
     car = Car.objects.all().filter(pk=pk).get()
 
+    car_price = car.price
 
     context = {
         'car': car,
         'pk': pk,
+        'car_price': f'{car_price:.2f}',
     }
 
     return render(request, 'car/car-details.html', context)

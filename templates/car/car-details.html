@@ -11,7 +11,7 @@
                 <h1>{{ car.model }}</h1>
                 <p><span class="description">Model: {{ car.brand }}</span></p>
                 <p><span class="description">Year: {{ car.year }}</span></p>
-                <p><span class="description">Price: {{ car.price }}</span></p>
+                <p><span class="description">Price: {{ car_price }}</span></p>
             </div>
             <div class="buttons">
                 <a href="{% url 'edit car' pk=car.pk %}" class="edit-button">Edit</a>
