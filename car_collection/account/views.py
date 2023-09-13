@@ -1,12 +1,10 @@
 from django.shortcuts import render, redirect
 
 from car_collection.account.forms import CreateProfileForm, EditProfileForm, DeleteProfileForm
-from car_collection.car.models import Car
 from car_collection.common.views import get_profile
 
 
 def create_profile(request):
-
     if request.method == 'GET':
         form = CreateProfileForm()
 
@@ -25,7 +23,6 @@ def create_profile(request):
 
 
 def delete_profile(request, pk):
-
     profile = get_profile()
 
     if request.method == 'GET':
@@ -48,22 +45,17 @@ def delete_profile(request, pk):
 
 
 def details_profile(request, pk):
-
     profile = get_profile()
-
-    # total_price = Car.objects.all().price
 
     context = {
         'profile': profile,
         'pk': pk,
-        # 'total_price': total_price,
     }
 
     return render(request, 'account/profile-details.html', context)
 
 
 def edit_profile(request, pk):
-
     profile = get_profile()
 
     if request.method == 'GET':

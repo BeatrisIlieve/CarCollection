@@ -2,6 +2,7 @@
 from django.core.validators import MinLengthValidator
 from django.db import models
 
+from car_collection.car.models import Car
 from car_collection.core.validators import MaxFileSizeInMbValidator, validate_only_letters
 
 
@@ -10,9 +11,6 @@ class Profile(models.Model):
     FIRST_NAME_MAX_LENGTH = 25
     LAST_NAME_MIN_LENGTH = 2
     LAST_NAME_MAX_LENGTH = 25
-
-    USERNAME_MIN_LENGTH = 2
-    USERNAME_MAX_LENGTH = 15
 
     TOTAL_PRICE_DEFAULT_VALUE = 0
 
@@ -35,22 +33,9 @@ class Profile(models.Model):
         ),
     )
 
-    username = models.CharField(
-        max_length=USERNAME_MAX_LENGTH,
-        null=False,
-        blank=False,
-        validators=(
-            MinLengthValidator(USERNAME_MIN_LENGTH),
-        ),
-    )
-
     email = models.EmailField()
 
     age = models.IntegerField()
-
-    total_price = models.FloatField(
-        default=TOTAL_PRICE_DEFAULT_VALUE,
-    )
 
     profile_image = models.ImageField(
         upload_to=IMAGE_UPLOAD_TO_DIR,
@@ -60,3 +45,12 @@ class Profile(models.Model):
             MaxFileSizeInMbValidator(IMAGE_MAX_SIZE_IN_MB),
         )
     )
+
+    @property
+    def full_name(self):
+        return f'{self.first_name} {self.last_name}'
+
+    @property
+    def total_cars_price(self):
+        total_sum = sum([c.price for c in Car.objects.all()])
+        return f'{total_sum:.2f}'
