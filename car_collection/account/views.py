@@ -51,12 +51,12 @@ def details_profile(request, pk):
 
     profile = get_profile()
 
-    total_price = Car.objects.all().price
+    # total_price = Car.objects.all().price
 
     context = {
         'profile': profile,
         'pk': pk,
-        'total_price': total_price,
+        # 'total_price': total_price,
     }
 
     return render(request, 'account/profile-details.html', context)

@@ -18,7 +18,7 @@ def validate_only_letters(value):
 
 
 def validate_car_manufacturing_year(value):
-    if not value > MIN_MANUFACTURING_YEAR:
+    if not value >= MIN_MANUFACTURING_YEAR:
         raise ValidationError(VALIDATE_CAR_MANUFACTURING_YEAR_MESSAGE)
 
 

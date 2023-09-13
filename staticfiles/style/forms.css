@@ -143,5 +143,6 @@ textarea {
 }
 
 .errorlist{
-    color: red
+    color: red;
+    font-size: 15px;
 }
