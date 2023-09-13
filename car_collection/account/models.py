@@ -1,5 +1,5 @@
 # account/models.py
-from django.core.validators import MinLengthValidator, MinValueValidator
+from django.core.validators import MinLengthValidator
 from django.db import models
 
 from car_collection.account.validators import MaxFileSizeInMbValidator, validate_only_letters
@@ -51,9 +51,6 @@ class Profile(models.Model):
 
     total_price = models.FloatField(
         default=TOTAL_PRICE_DEFAULT_VALUE,
-        validators=(
-            MinValueValidator(TOTAL_MIN_VALUE),
-        )
     )
 
     profile_image = models.ImageField(
