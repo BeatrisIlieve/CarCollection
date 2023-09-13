@@ -7,12 +7,12 @@ from car_collection.account.validators import MaxFileSizeInMbValidator, validate
 
 class Profile(models.Model):
     FIRST_NAME_MIN_LENGTH = 2
-    FIRST_NAME_MAX_LENGTH = 15
+    FIRST_NAME_MAX_LENGTH = 25
     LAST_NAME_MIN_LENGTH = 2
-    LAST_NAME_MAX_LENGTH = 15
+    LAST_NAME_MAX_LENGTH = 25
 
     USERNAME_MIN_LENGTH = 2
-    USERNAME_MAX_LENGTH = 10
+    USERNAME_MAX_LENGTH = 15
 
     TOTAL_PRICE_DEFAULT_VALUE = 0
     TOTAL_MIN_VALUE = 0
