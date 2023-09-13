@@ -1,6 +1,6 @@
 from django.db import models
 
-from car_collection.account.validators import MaxFileSizeInMbValidator
+from car_collection.core.validators import MaxFileSizeInMbValidator, validate_car_manufacturing_year
 
 
 class Car(models.Model):
@@ -16,7 +16,7 @@ class Car(models.Model):
     OTHER = "Other"
 
     CAR_PRICE_DEFAULT_VALUE = 0
-    CAR_YEAR = 1850
+    DEFAULT_MANUFACTURING_YEAR = 1850
 
     CARS = (
         (SPORT_CAR, SPORT_CAR),
@@ -39,7 +39,10 @@ class Car(models.Model):
     )
 
     year = models.IntegerField(
-        default=CAR_YEAR,
+        default=DEFAULT_MANUFACTURING_YEAR,
+        validators=(
+            validate_car_manufacturing_year,
+        ),
         null=False,
         blank=False,
     )

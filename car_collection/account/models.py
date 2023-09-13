@@ -2,7 +2,7 @@
 from django.core.validators import MinLengthValidator
 from django.db import models
 
-from car_collection.account.validators import MaxFileSizeInMbValidator, validate_only_letters
+from car_collection.core.validators import MaxFileSizeInMbValidator, validate_only_letters
 
 
 class Profile(models.Model):
@@ -15,7 +15,6 @@ class Profile(models.Model):
     USERNAME_MAX_LENGTH = 15
 
     TOTAL_PRICE_DEFAULT_VALUE = 0
-    TOTAL_MIN_VALUE = 0
 
     IMAGE_MAX_SIZE_IN_MB = 5
     IMAGE_UPLOAD_TO_DIR = 'cars/'

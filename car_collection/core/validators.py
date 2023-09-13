@@ -1,12 +1,21 @@
 from django.core.exceptions import ValidationError
 from django.utils.deconstruct import deconstructible
 
-VALIDATE_ONLY_LETTERS_EXCEPTION_MESSAGE = 'Ensure this value contains only letters.'
+VALIDATE_ONLY_LETTERS_EXCEPTION_MESSAGE = 'Ensure the name contains only letters.'
+
+VALIDATE_CAR_MANUFACTURING_YEAR_MESSAGE = 'Ensure the car manufacturing year is greater than 1850.'
+
+MIN_MANUFACTURING_YEAR = 1850
 
 
 def validate_only_letters(value):
     if not value.isalpha():
         raise ValidationError(VALIDATE_ONLY_LETTERS_EXCEPTION_MESSAGE)
+
+
+def validate_car_manufacturing_year(value):
+    if not value > MIN_MANUFACTURING_YEAR:
+        raise ValidationError(VALIDATE_CAR_MANUFACTURING_YEAR_MESSAGE)
 
 
 @deconstructible
