@@ -18,7 +18,7 @@ class EditProfileForm(forms.ModelForm):
 class DeleteProfileForm(forms.ModelForm):
     class Meta:
         model = Profile
-        exclude = '__all__'
+        fields = ()
 
     def save(self, commit=True):
         if commit:
