@@ -1,6 +1,6 @@
 from django.db import models
 
-from car_collection.core.validators import MaxFileSizeInMbValidator, validate_car_manufacturing_year
+from car_collection.core.validators import MaxFileSizeInMbValidator, validate_car_manufacturing_year, validate_car_price
 
 
 class Car(models.Model):
@@ -58,6 +58,9 @@ class Car(models.Model):
 
     price = models.FloatField(
         default=CAR_PRICE_DEFAULT_VALUE,
+        validators=(
+            validate_car_price,
+        ),
         null=False,
         blank=False,
     )
