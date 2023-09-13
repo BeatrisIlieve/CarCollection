@@ -17,7 +17,7 @@ class Profile(models.Model):
     TOTAL_PRICE_DEFAULT_VALUE = 0
 
     IMAGE_MAX_SIZE_IN_MB = 5
-    IMAGE_UPLOAD_TO_DIR = 'cars/'
+    IMAGE_UPLOAD_TO_DIR = 'profiles/'
 
     first_name = models.CharField(
         max_length=FIRST_NAME_MAX_LENGTH,
