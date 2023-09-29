@@ -107,6 +107,6 @@ MEDIA_ROOT = BASE_DIR / 'mediafiles'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-AUTH_USER_MODEL = 'accounts.CarCollectionUser'
+AUTH_USER_MODEL = 'account.CarCollectionUser'
 
 LOGIN_REDIRECT_URL = reverse_lazy('home page')

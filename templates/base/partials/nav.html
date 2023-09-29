@@ -4,12 +4,13 @@
         <h1><a class="index-navigation" href="{% url 'home page' %}"><span>C</span>ARS <span>C</span>OLLECTION</a></h1>
         <nav>
 
-                <!-- if the user has created a profile -->
+                {% if request.user.is_authenticated %}
                 <a href="{% url 'catalogue' %}">Catalogue</a>
                 <a href="{% url 'create car' %}">Create Car</a>
-                <a href="{% url 'details profile' pk=1 %}">Profile</a>
-
+                <a href="{% url 'details profile' pk=request.user.pk %}">Profile</a>
+                {% else %}
                 <a href="{% url 'create profile' %}">Create Profile</a>
+                {% endif %}
 
         </nav>
     </header>

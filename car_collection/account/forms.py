@@ -2,14 +2,14 @@ import os
 
 from django import forms
 from django.contrib.auth import get_user_model
-from django.contrib.auth.forms import UsernameField
+from django.contrib.auth.forms import UsernameField, UserCreationForm
 
 from car_collection.account.models import Profile
 
 
 CarCollectionUserModel = get_user_model()
 
-class CreateProfileForm(forms.ModelForm):
+class CreateProfileForm(UserCreationForm):
     class Meta:
         model = CarCollectionUserModel
         fields = (CarCollectionUserModel.USERNAME_FIELD,)
