@@ -1,9 +1,24 @@
+from django.contrib.auth import get_user_model, login
 from django.shortcuts import render, redirect
-
+from django.urls import reverse_lazy
+from django.views.generic import CreateView
 from car_collection.account.forms import CreateProfileForm, EditProfileForm, DeleteProfileForm
 from car_collection.car.models import Car
 from car_collection.common.views import get_profile
 
+CarCollectionUserModel = get_user_model()
+
+
+class SignUpView(CreateView):
+    template_name = 'account/profile-create.html'
+    form_class = CreateProfileForm
+    success_url = reverse_lazy('home page', )
+
+    def form_valid(self, form):
+        result = super().form_valid(form)
+
+        login(self.request, self.object)
+        return result
 
 def create_profile(request):
     if request.method == 'GET':
