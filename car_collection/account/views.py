@@ -29,7 +29,7 @@ class UserDeleteView(DeleteView):
 
 class UserDetailsView(DetailView):
     template_name = 'account/profile-details.html'
-    model = Profile
+    model = CarCollectionUserModel
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
