@@ -29,7 +29,7 @@ class UserDeleteView(DeleteView):
 
 class UserDetailsView(DetailView):
     template_name = 'account/profile-details.html'
-    model = CarCollectionUserModel
+    model = Profile
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -42,7 +42,7 @@ class UserDetailsView(DetailView):
 class UserEditView(UpdateView):
     template_name = 'account/profile-edit.html'
     model = Profile
-    fields = ('first_name', 'last_name', 'age', 'profile_image')
+    fields = ('first_name', 'last_name', 'age', 'gender', 'profile_image')
 
     def get_success_url(self):
         return reverse_lazy('details profile', kwargs={

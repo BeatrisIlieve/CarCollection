@@ -1,4 +1,6 @@
 # account/models.py
+from enum import Enum
+
 from django.contrib.auth.base_user import AbstractBaseUser
 from django.contrib.auth.models import PermissionsMixin
 from django.core.validators import MinLengthValidator
@@ -6,6 +8,7 @@ from django.db import models
 
 from car_collection.account.manager import CarCollectionUserManager
 from car_collection.car.models import Car
+from car_collection.core.modelmixins import ChoicesEnumMixin
 from car_collection.core.validators import MaxFileSizeInMbValidator, validate_only_letters
 
 
@@ -25,6 +28,12 @@ class CarCollectionUser(AbstractBaseUser, PermissionsMixin):
     )
 
     objects = CarCollectionUserManager()
+
+
+class Gender(ChoicesEnumMixin, Enum):
+    Female = 'Female'
+    Male = 'Male'
+    DoNotShow = 'Do not Show'
 
 
 class Profile(models.Model):
@@ -57,6 +66,13 @@ class Profile(models.Model):
     age = models.IntegerField(
         null=True,
         blank=True,
+    )
+
+    gender = models.CharField(
+        null=True,
+        blank=True,
+        choices=Gender.choices(),
+        max_length=Gender.max_length(),
     )
 
     profile_image = models.ImageField(

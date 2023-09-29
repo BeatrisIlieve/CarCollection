@@ -15,6 +15,7 @@
                 <p class="description">Name: {{ user.profile.full_name }}</p>
                 <p class="description">Email: {{ object.email }}</p>
                 <p class="description">Age: {{ user.profile.age }}</p>
+                <p class="description">Gender: {{ user.profile.gender }}</p>
                 <p class="description">Total price: {{ total_sum|floatformat:2 }}</p>
                 <div class="buttons">
                     <a href="{% url 'edit profile' pk=object.pk %}" class="edit-button">Edit</a>
