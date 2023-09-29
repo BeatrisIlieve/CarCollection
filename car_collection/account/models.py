@@ -26,6 +26,7 @@ class CarCollectionUser(AbstractBaseUser, PermissionsMixin):
 
     objects = CarCollectionUserManager()
 
+
 class Profile(models.Model):
     FIRST_NAME_MIN_LENGTH = 2
     FIRST_NAME_MAX_LENGTH = 25
@@ -76,6 +77,3 @@ class Profile(models.Model):
     @property
     def full_name(self):
         return f'{self.first_name} {self.last_name}'
-
-
-

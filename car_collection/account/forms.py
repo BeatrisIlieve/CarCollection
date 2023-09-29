@@ -6,8 +6,8 @@ from django.contrib.auth.forms import UsernameField, UserCreationForm
 
 from car_collection.account.models import Profile
 
-
 CarCollectionUserModel = get_user_model()
+
 
 class CreateProfileForm(UserCreationForm):
     class Meta:
@@ -27,6 +27,7 @@ class CreateProfileForm(UserCreationForm):
             profile.save()
 
         return user
+
 
 class EditProfileForm(forms.ModelForm):
     class Meta:
@@ -50,6 +51,7 @@ class EditProfileForm(forms.ModelForm):
             profile.save()
 
         return user
+
 
 class DeleteProfileForm(forms.ModelForm):
     class Meta:
