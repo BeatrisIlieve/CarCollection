@@ -36,6 +36,20 @@ class EditProfileForm(forms.ModelForm):
             'username': UsernameField,
         }
 
+    def save(self, commit=True):
+        user = super().save(commit=commit)
+
+        profile = Profile(
+            first_name=self.cleaned_data['first_name'],
+            last_name=self.cleaned_data['last_name'],
+            age=self.cleaned_data['age'],
+            profile_image=self.cleaned_data['profile_image'],
+            user=user,
+        )
+        if commit:
+            profile.save()
+
+        return user
 
 class DeleteProfileForm(forms.ModelForm):
     class Meta:

@@ -4,6 +4,7 @@ from django.urls import reverse_lazy
 from django.views.generic import CreateView, DetailView, DeleteView, UpdateView
 
 from car_collection.account.forms import CreateProfileForm, EditProfileForm, DeleteProfileForm
+from car_collection.account.models import Profile
 from car_collection.car.models import Car
 
 CarCollectionUserModel = get_user_model()
@@ -112,7 +113,7 @@ class UserDetailsView(DetailView):
 
 class UserEditView(UpdateView):
     template_name = 'account/profile-edit.html'
-    model = CarCollectionUserModel
+    model = Profile
     fields = ('first_name', 'last_name', 'age', 'profile_image')
 
     def get_success_url(self):
