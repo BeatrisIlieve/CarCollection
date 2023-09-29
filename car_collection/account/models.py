@@ -53,7 +53,10 @@ class Profile(models.Model):
         ),
     )
 
-    age = models.IntegerField()
+    age = models.IntegerField(
+        null=True,
+        blank=True,
+    )
 
     profile_image = models.ImageField(
         upload_to=IMAGE_UPLOAD_TO_DIR,
