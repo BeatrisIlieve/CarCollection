@@ -1,20 +1,40 @@
 import os
 
 from django import forms
+from django.contrib.auth import get_user_model
+from django.contrib.auth.forms import UsernameField
 
 from car_collection.account.models import Profile
 
 
+CarCollectionUserModel = get_user_model()
+
 class CreateProfileForm(forms.ModelForm):
     class Meta:
-        model = Profile
-        fields = '__all__'
+        model = CarCollectionUserModel
+        fields = (CarCollectionUserModel.USERNAME_FIELD,)
+        field_classes = {
+            'username': UsernameField,
+        }
 
+    def save(self, commit=True):
+        user = super().save(commit=commit)
+        profile = Profile(
+            user=user,
+        )
+
+        if commit:
+            profile.save()
+
+        return user
 
 class EditProfileForm(forms.ModelForm):
     class Meta:
         model = Profile
-        fields = '__all__'
+        fields = ('first_name', 'last_name', 'age', 'profile_image',)
+        field_classes = {
+            'username': UsernameField,
+        }
 
 
 class DeleteProfileForm(forms.ModelForm):

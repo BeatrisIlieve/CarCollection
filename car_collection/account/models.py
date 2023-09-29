@@ -1,10 +1,30 @@
 # account/models.py
+from django.contrib.auth.base_user import AbstractBaseUser
+from django.contrib.auth.models import PermissionsMixin
 from django.core.validators import MinLengthValidator
 from django.db import models
 
+from car_collection.account.manager import CarCollectionUserManager
 from car_collection.car.models import Car
 from car_collection.core.validators import MaxFileSizeInMbValidator, validate_only_letters
 
+
+class CarCollectionUser(AbstractBaseUser, PermissionsMixin):
+    email = models.EmailField(
+        unique=True,
+        null=False,
+        blank=False
+    )
+
+    USERNAME_FIELD = 'email'
+
+    is_staff = models.BooleanField(
+        default=False,
+        null=False,
+        blank=False
+    )
+
+    objects = CarCollectionUserManager()
 
 class Profile(models.Model):
     FIRST_NAME_MIN_LENGTH = 2
@@ -33,8 +53,6 @@ class Profile(models.Model):
         ),
     )
 
-    email = models.EmailField()
-
     age = models.IntegerField()
 
     profile_image = models.ImageField(
@@ -46,8 +64,11 @@ class Profile(models.Model):
         )
     )
 
-    @property
-    def full_name(self):
-        return f'{self.first_name} {self.last_name}'
+    user = models.OneToOneField(
+        CarCollectionUser,
+        primary_key=True,
+        on_delete=models.CASCADE,
+    )
+
 
 
