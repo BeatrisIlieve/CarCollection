@@ -23,7 +23,7 @@ def create_car(request):
     
     return render(request, 'car/car-create.html', context)
 
-
+@cache_page(15 * 60)
 def delete_car(request, pk):
     car = Car.objects.all().filter(pk=pk).get()
 
@@ -45,7 +45,7 @@ def delete_car(request, pk):
 
     return render(request, 'car/car-delete.html', context)
 
-
+@cache_page(15 * 60)
 def details_car(request, pk):
     car = Car.objects.all().filter(pk=pk).get()
 
