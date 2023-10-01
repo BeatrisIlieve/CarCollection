@@ -1,11 +1,7 @@
-from django.contrib.auth import get_user_model
 from django.db import models
 
+from car_collection.account.models import Profile
 from car_collection.car.models import Car
-
-CarCollectionUserModel = get_user_model()
-
-
 class CarLookedAt(models.Model):
     car = models.ForeignKey(
         Car,
@@ -15,6 +11,6 @@ class CarLookedAt(models.Model):
     )
 
     user = models.ForeignKey(
-        CarCollectionUserModel,
+        Profile,
         on_delete=models.RESTRICT,
     )
