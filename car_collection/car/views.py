@@ -5,7 +5,7 @@ from car_collection.car.forms import CreateCarForm, DeleteCarForm, EditCarForm
 from car_collection.car.models import Car
 
 
-@cache_page(60 * 15)
+@cache_page(15 * 60)
 def create_car(request):
     if request.method == 'GET':
         form = CreateCarForm()
