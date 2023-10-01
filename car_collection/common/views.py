@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect
+from django.views.decorators.cache import cache_page
 
 from car_collection.account.models import Profile
 
@@ -17,5 +18,6 @@ from car_collection.account.models import Profile
 #         return render(request, 'common/index.html')
 #     return render(request, 'common/index.html')
 
+@cache_page(15 * 60)
 def index(request):
     return render(request, 'common/index.html')
