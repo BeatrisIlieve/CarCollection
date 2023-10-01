@@ -20,8 +20,9 @@ def create_car(request):
     context = {
         'form': form,
     }
-    
+
     return render(request, 'car/car-create.html', context)
+
 
 @cache_page(15 * 60)
 def delete_car(request, pk):
@@ -45,6 +46,7 @@ def delete_car(request, pk):
 
     return render(request, 'car/car-delete.html', context)
 
+
 @cache_page(15 * 60)
 def details_car(request, pk):
     car = Car.objects.all().filter(pk=pk).get()
@@ -58,6 +60,7 @@ def details_car(request, pk):
     }
 
     return render(request, 'car/car-details.html', context)
+
 
 @cache_page(15 * 60)
 def edit_car(request, pk):
@@ -82,6 +85,7 @@ def edit_car(request, pk):
     return render(request, 'car/car-edit.html', context)
 
 
+@cache_page(15 * 60)
 def show_catalogue(request):
     total_cars = Car.objects.all().count()
 
