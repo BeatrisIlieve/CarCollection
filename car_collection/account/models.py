@@ -93,3 +93,5 @@ class Profile(models.Model):
     @property
     def full_name(self):
         return f'{self.first_name} {self.last_name}'
+
+
