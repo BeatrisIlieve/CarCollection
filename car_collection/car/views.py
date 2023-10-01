@@ -59,7 +59,7 @@ def details_car(request, pk):
 
     return render(request, 'car/car-details.html', context)
 
-
+@cache_page(15 * 60)
 def edit_car(request, pk):
     car = Car.objects.all().filter(pk=pk).get()
 
