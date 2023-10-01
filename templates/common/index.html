@@ -2,17 +2,10 @@
 {% load static %}
 {% block page_content %}
     {% include 'base/partials/nav.html' %}
-    <!-- headlines -->
     <section id="index-headline">
-        {% if user.car_set %}
-            {% for car in user.profile.car_set.all %}
-                <img src="/media/{{ car.car_image }}" alt="">
-            {% endfor %}
-        {% else %}
             <div class="index-message">
                 <h2>Create<span> your own</span> car collection<span> here!</span></h2>
             </div>
             <img src="{% static 'images/car-index.png' %}" alt="car">
-        {% endif %}
     </section>
 {% endblock %}
