@@ -5,19 +5,20 @@ from car_collection.account.models import Profile, CarCollectionUser
 
 
 class ProfileModelTests(TestCase):
-    def test_profile_save__when_first_name_min_length_is_valid__expect_correct_result(self):
-        user = CarCollectionUser(
+    def setUp(self) -> None:
+        self.user = CarCollectionUser(
             email='beatrisilieve@icloud.com',
             password='S@3ana3a'
         )
 
-        user.full_clean()
-        user.save()
+        self.user.full_clean()
+        self.user.save()
 
+    def test_profile_save__when_first_name_min_length_is_valid__expect_correct_result(self):
         profile = Profile(
             first_name='Beatris',
             last_name='Ilieve',
-            user=user,
+            user=self.user,
 
         )
 
@@ -27,18 +28,10 @@ class ProfileModelTests(TestCase):
         self.assertIsNotNone(profile.user_id)
 
     def test_profile_save__when_first_name_min_length_is_invalid__expect_exception(self):
-        user = CarCollectionUser(
-            email='beatrisilieve@icloud.com',
-            password='S@3ana3a'
-        )
-
-        user.full_clean()
-        user.save()
-
         profile = Profile(
             first_name='B',
             last_name='Ilieve',
-            user=user,
+            user=self.user,
 
         )
 
@@ -49,18 +42,10 @@ class ProfileModelTests(TestCase):
         self.assertIsNotNone(ve)
 
     def test_profile_save__when_first_name_does_not_contain_only_letters_invalid__expect_exception(self):
-        user = CarCollectionUser(
-            email='beatrisilieve@icloud.com',
-            password='S@3ana3a'
-        )
-
-        user.full_clean()
-        user.save()
-
         profile = Profile(
             first_name='B3@',
             last_name='Ilieve',
-            user=user,
+            user=self.user,
 
         )
 
