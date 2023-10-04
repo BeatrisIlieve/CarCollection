@@ -3,7 +3,7 @@ from django.utils.deconstruct import deconstructible
 
 VALIDATE_ONLY_LETTERS_EXCEPTION_MESSAGE = 'Ensure the name contains only letters.'
 
-VALIDATE_CAR_MANUFACTURING_YEAR_MESSAGE = 'Ensure the car manufacturing year is greater than 1850.'
+VALIDATE_CAR_MANUFACTURING_YEAR_MESSAGE = 'Ensure the car manufacturing year is greater than 1849.'
 
 VALIDATE_CAR_MIN_PRICE_MESSAGE = 'Ensure the car price is greater than zero.'
 
