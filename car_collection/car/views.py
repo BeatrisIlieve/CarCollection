@@ -1,3 +1,4 @@
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
 from django.views.decorators.cache import cache_page
 
@@ -5,6 +6,7 @@ from car_collection.car.forms import CreateCarForm, DeleteCarForm, EditCarForm
 from car_collection.car.models import Car
 
 
+@login_required
 @cache_page(15 * 60)
 def create_car(request):
     if request.method == 'GET':
@@ -24,6 +26,7 @@ def create_car(request):
     return render(request, 'car/car-create.html', context)
 
 
+@login_required
 @cache_page(15 * 60)
 def delete_car(request, pk):
     car = Car.objects.all().filter(pk=pk).get()
@@ -47,6 +50,7 @@ def delete_car(request, pk):
     return render(request, 'car/car-delete.html', context)
 
 
+@login_required
 @cache_page(15 * 60)
 def details_car(request, pk):
     car = Car.objects.all().filter(pk=pk).get()
@@ -62,6 +66,7 @@ def details_car(request, pk):
     return render(request, 'car/car-details.html', context)
 
 
+@login_required
 @cache_page(15 * 60)
 def edit_car(request, pk):
     car = Car.objects.all().filter(pk=pk).get()
@@ -85,6 +90,7 @@ def edit_car(request, pk):
     return render(request, 'car/car-edit.html', context)
 
 
+@login_required
 @cache_page(15 * 60)
 def show_catalogue(request):
     total_cars = Car.objects.all().count()

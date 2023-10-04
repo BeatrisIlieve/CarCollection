@@ -1,4 +1,5 @@
 from django.contrib.auth import login, get_user_model
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse_lazy
 from django.views.generic import CreateView, DetailView, DeleteView, UpdateView
 
@@ -21,13 +22,13 @@ class SignUpView(CreateView):
         return result
 
 
-class UserDeleteView(DeleteView):
+class UserDeleteView(LoginRequiredMixin, DeleteView):
     template_name = 'account/profile-delete.html'
     model = CarCollectionUserModel
     success_url = reverse_lazy('home page')
 
 
-class UserDetailsView(DetailView):
+class UserDetailsView(LoginRequiredMixin, DetailView):
     template_name = 'account/profile-details.html'
     model = CarCollectionUserModel
 
@@ -39,7 +40,7 @@ class UserDetailsView(DetailView):
         return context
 
 
-class UserEditView(UpdateView):
+class UserEditView(LoginRequiredMixin, UpdateView):
     template_name = 'account/profile-edit.html'
     model = Profile
     fields = ('first_name', 'last_name', 'age', 'gender', 'profile_image')
