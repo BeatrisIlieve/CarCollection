@@ -40,3 +40,11 @@
 #### Profile Delete Page
 - `Are you sure you want to delete your profile?`
 -  If the user clicks on the "Yes" button the profile is deleted, and all the user's photos, cats and likes as well, and the user is redirected to the Home page
+#### Car Add Page
+#### Car Details Page
+#### Car Edit Page
+#### Car Delete Page
+
+
+
+
