@@ -15,3 +15,10 @@
 - `Year`
 - `Car image`
 - `Car price`
+### 2. **Structure**
+#### Navigation Bar
+- `CarCollection button` that leads to the home page
+- `Add Car button` that leads to the pet add page
+- `Login button` that leads to the login page (visible only to unauthenticated users)
+- `Register button` that leads to the register page (visible only to unauthenticated users)
+- `Profile button` that leads to the user profile details page (visible only to authenticated users)
