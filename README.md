@@ -32,7 +32,7 @@
 #### Profile Details Page
 - `Edit button`
 - `Delete button`
-- `Total number of cars
+- `Total number of cars`
 #### Profile Edit Page
 - `Email`
 - `First Name`
