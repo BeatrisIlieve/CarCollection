@@ -9,3 +9,9 @@
 - `First Name`
 - `Last Name`
 - `User`
+#### Car
+- `Brand`
+- `Model`
+- `Year`
+- `Car image`
+- `Car price`
