@@ -22,3 +22,10 @@
 - `Login button` that leads to the login page (visible only to unauthenticated users)
 - `Register button` that leads to the register page (visible only to unauthenticated users)
 - `Profile button` that leads to the user profile details page (visible only to authenticated users)
+#### Registration Page
+- `Email`
+- `Password`
+#### Login Page
+- `Email`
+- `Password`
+- When a user is logged in he/she is redirected to the Home page
