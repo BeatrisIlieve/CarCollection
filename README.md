@@ -29,3 +29,14 @@
 - `Email`
 - `Password`
 - When a user is logged in he/she is redirected to the Home page
+#### Profile Details Page
+- `Edit button`
+- `Delete button`
+- `Total number of cars
+#### Profile Edit Page
+- `Email`
+- `First Name`
+- `Last Name`
+#### Profile Delete Page
+- `Are you sure you want to delete your profile?`
+-  If the user clicks on the "Yes" button the profile is deleted, and all the user's photos, cats and likes as well, and the user is redirected to the Home page
